@@ -1,7 +1,0 @@
-@page{ size:A4; margin:12mm }
-body{ background:white !important; color:#111827 !important }
-.topbar,.sidebar,.toast,.toolbar,#btnSync,#btnLogout,#btnQuickAdd,.bottomNav{ display:none !important }
-.content{ border:none !important; background:white !important; min-height:auto !important }
-.tablewrap{ border:1px solid #e5e7eb !important }
-th{ background:#f3f4f6 !important; color:#111827 !important; border-bottom:1px solid #e5e7eb !important }
-td{ color:#111827 !important; border-bottom:1px solid #e5e7eb !important }
