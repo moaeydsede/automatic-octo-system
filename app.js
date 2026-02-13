@@ -19,7 +19,7 @@ const toast=(msg)=>{ const t=el("toast"); t.textContent=msg; t.classList.remove(
 async function api(action,payload={}){
   const device = navigator.userAgent || "unknown";
   const body={ action, token: state.token, device, ...payload };
-  const r = await fetch(CONFIG.API_URL, { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(body) });
+  const r = await fetch(CONFIG.API_URL, { method:"POST", body:JSON.stringify(body) });
   const data = await r.json().catch(()=> ({}));
   if (!r.ok || data.ok===false) throw new Error(data.error || "فشل الطلب");
   return data;

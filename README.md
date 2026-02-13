@@ -13,3 +13,8 @@
 
 API URL مضبوط على:
 https://script.google.com/macros/s/AKfycbwgVIBcLOTUM1MRfc5zOVuxjuun8QJAjsolWwZDVRD7XjtKWqvoca879pstV-OUC-Yu/exec
+
+
+## Fix Failed to fetch
+- Frontend uses POST بدون headers لتجنب CORS preflight.
+- Apps Script: Execute as Me + Access Anyone.
