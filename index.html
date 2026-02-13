@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>ERP PRO — محاسبة + مخازن</title>
+  <meta name="theme-color" content="#0f172a">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="print.css" media="print">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img class="brandIcon" src="icon-192.png" alt="ERP" />
+      <div class="titles">
+        <div class="name">ERP PRO — GOLDEN V12.1</div>
+        <div class="sub">محاسبة + مخازن — بدون ضرائب/تصنيع</div>
+      </div>
+    </div>
+    <div class="top-actions">
+      <button class="btn ghost" id="btnSync">مزامنة</button>
+      <button class="btn ghost" id="btnPrint">طباعة</button>
+      <button class="btn danger" id="btnLogout">خروج</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="loginView" class="card login">
+      <div class="loginHead">
+        <div>
+          <h1>تسجيل الدخول</h1>
+          </div>
+        <div class="pill">PWA جاهز</div>
+      </div>
+
+      <div class="grid2">
+        <div class="field">
+          <label>اسم المستخدم</label>
+          <input id="loginUser" autocomplete="username" placeholder="admin">
+        </div>
+        <div class="field">
+          <label>كلمة المرور</label>
+          <input id="loginPass" type="password" autocomplete="current-password" placeholder="••••••••">
+        </div>
+      </div>
+
+      <div class="row">
+        <button class="btn primary" id="btnLogin">دخول</button>
+        <div class="spacer"></div>
+        <span id="loginStatus" class="muted"></span>
+      </div>
+
+      <div class="hint">
+        <div><b>افتراضيًا:</b> admin / Admin123</div>
+        </div>
+    </section>
+
+    <section id="appView" class="app hidden">
+      <aside class="sidebar">
+        <div class="userbox">
+          <div class="avatar" id="userAvatar">A</div>
+          <div>
+            <div class="uname" id="userName">—</div>
+            <div class="role" id="userRole">—</div>
+          </div>
+        </div>
+
+        <nav class="nav" id="nav"></nav>
+
+        <div class="sidefoot muted">
+          <div>واجهة ذهبية — GitHub Pages</div>
+          <div>تخزين: Google Sheets</div>
+        </div>
+      </aside>
+
+      <section class="content">
+        <div class="contentHead">
+          <div>
+            <div id="pageTitle" class="page-title">لوحة التحكم</div>
+            <div id="pageSub" class="muted" style="font-size:12px;margin-top:4px"></div>
+          </div>
+          <div class="contentActions">
+            <button class="btn primary" id="btnNewSale">فاتورة مبيعات</button>
+            <button class="btn primary" id="btnNewPurchase">فاتورة مشتريات</button>
+          </div>
+        </div>
+        <div id="page" class="page"></div>
+      </section>
+
+      <nav class="bottomNav" id="bottomNav"></nav>
+    </section>
+  </main>
+
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modalCard">
+      <div class="modalHead">
+        <div class="modalTitle" id="modalTitle">—</div>
+        <button class="btn ghost" id="modalClose">إغلاق</button>
+      </div>
+      <div id="modalBody" class="modalBody"></div>
+      <div class="modalFoot" id="modalFoot"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="app.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("./service-worker.js").catch(()=>{});
+    }
+  </script>
+</body>
+</html>
